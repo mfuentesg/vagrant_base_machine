@@ -1,0 +1,4 @@
+---
+ip: 192.168.44.10
+memory: 2048
+synced_folder: '~/code'
