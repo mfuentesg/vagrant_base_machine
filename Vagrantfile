@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     "#{ENV["HOME"]}/.vagrant.d/insecure_private_key"
   ]
   
-  config.vm.synced_folder config_file["synced_folder"], "/var/www", 
+  config.vm.synced_folder config_file["synced_folder"], "/var/www/html", 
     :owner => "vagrant", 
     :group => "www-data", 
     mount_options: ["dmode=775,fmode=764"]
