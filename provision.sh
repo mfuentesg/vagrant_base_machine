@@ -17,6 +17,7 @@ cd /vagrant/config/sql && mysql -u root -e "source users.sql";
 
 #Install php
 sudo apt-get install -y imagemagick zip unzip git
+sudo apt-get install -y --force php5 libapache2-mod-php5
 sudo apt-get install -y --force-yes php5-common php5-xmlrpc php5-curl php5-gd php5-cli php5-fpm php-pear php5-dev php5-imap php5-mcrypt php5-imagick php5-xdebug php5-sqlite php5-mysql
 sudo apt-get install -y --force-yes php5-memcached memcached
 sudo cp /vagrant/config/php/php_dev.ini /etc/php5/fpm/php.ini
@@ -24,17 +25,16 @@ sudo cp /vagrant/config/php/php_dev.ini /etc/php5/cli/php.ini
 
 #Install apache
 sudo apt-get install apache2 -y
+sudo sed -i 's/html//g' /etc/apache2/sites-available/000-default.conf
 
 #Install Composer
 cd /tmp && curl -sS https://getcomposer.org/installer | php && sudo mv composer.phar /usr/local/bin/composer
 
 #Install NodeJS via NVM
 sudo apt-get install g++ curl libssl-dev apache2-utils build-essential git-core -y
-sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
-source ~/.bash_profile
+sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | PROFILE=~/.bashrc bash
 source ~/.profile
 source ~/.bashrc
-nvm install stable
 
 #Install npm and use without sudo
 sudo apt-get install npm -y
