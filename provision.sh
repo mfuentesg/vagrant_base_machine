@@ -4,6 +4,9 @@ sudo locale-gen UTF-8
 sudo apt-get update -y
 sudo apt-get install -y python-software-properties
 
+echo "America/Santiago" | sudo tee /etc/timezone
+sudo dpkg-reconfigure --frontend noninteractive tzdata
+
 #Adding repositories
 sudo add-apt-repository -y ppa:ondrej/php5
 sudo apt-get update
