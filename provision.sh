@@ -54,3 +54,8 @@ sudo usermod -a -G www-data vagrant;
 sudo restart php5-fpm
 sudo service apache2 restart
 sudo apt-get autoremove
+
+#Install extra packages
+  if [ -e /vagrant/extra_provision.sh ]; then
+    bash /vagrant/extra_provision.sh
+  fi
