@@ -56,6 +56,6 @@ sudo service apache2 restart
 sudo apt-get autoremove
 
 #Install extra packages
-  if [ -e /vagrant/extra_provision.sh ]; then
-    bash /vagrant/extra_provision.sh
-  fi
+if [ -e /vagrant/extra_provision.sh ]; then
+  bash /vagrant/extra_provision.sh
+fi
