@@ -1,6 +1,11 @@
 #!/bin/bash
 
-sudo locale-gen UTF-8
+export LANGUAGE=es_CL.UTF-8
+export LANG=es_CL.UTF-8
+export LC_ALL=es_CL.UTF-8
+sudo locale-gen es_CL.UTF-8
+sudo dpkg-reconfigure locales
+
 sudo apt-get update -y
 sudo apt-get install -y python-software-properties
 
