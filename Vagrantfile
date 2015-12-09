@@ -9,6 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = config_file["hostname"]
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "private_network", ip: config_file["ip"]
+
+  config.ssh.insert_key = false
   config.ssh.private_key_path = [
     config_file['ssh_key_path'],
     "#{ENV["HOME"]}/.vagrant.d/insecure_private_key"
